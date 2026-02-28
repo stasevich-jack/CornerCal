@@ -30,11 +30,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationDidChangeOcclusionState(_ notification: Notification) {
         if (NSApp.occlusionState.contains(.visible)) {
-            // the app now became visible
+            // keep status item state in sync when app regains visibility
             appController.refreshState()
-        } else {
-            // none of the app is visible anymore, so pause everything
-            appController.deactivate()
         }
     }
     
@@ -50,4 +47,3 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
 }
-

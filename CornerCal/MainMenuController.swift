@@ -15,7 +15,7 @@ class MainMenuController: NSObject, NSCollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
-        let id = NSUserInterfaceItemIdentifier.init(rawValue: "CalendarDayItem")
+        let id = NSUserInterfaceItemIdentifier(rawValue: "CalendarDayItem")
         
         let item = collectionView.makeItem(withIdentifier: id, for: indexPath)
         guard let calendarItem = item as? CalendarDayItem else {
@@ -58,16 +58,16 @@ class MainMenuController: NSObject, NSCollectionViewDataSource {
         collectionView.reloadData()
     }
     
-    private func getBasicAttributes(button: NSButton, color: NSColor, alpha: CGFloat) -> [NSAttributedStringKey : Any] {
+    private func getBasicAttributes(button: NSButton, color: NSColor, alpha: CGFloat) -> [NSAttributedString.Key: Any] {
         let style = NSMutableParagraphStyle()
         style.alignment = .center
         
         return [
-            NSAttributedStringKey.foregroundColor: color.withAlphaComponent(alpha),
-            NSAttributedStringKey.font: NSFont.systemFont(ofSize: (button.font?.pointSize)!, weight: NSFont.Weight.light),
-            NSAttributedStringKey.backgroundColor: NSColor.clear,
-            NSAttributedStringKey.paragraphStyle: style,
-            NSAttributedStringKey.kern: 0.5 // some additional character spacing
+            .foregroundColor: color.withAlphaComponent(alpha),
+            .font: NSFont.systemFont(ofSize: (button.font?.pointSize)!, weight: NSFont.Weight.light),
+            .backgroundColor: NSColor.clear,
+            .paragraphStyle: style,
+            .kern: 0.5 // some additional character spacing
         ]
     }
     
@@ -96,10 +96,6 @@ class MainMenuController: NSObject, NSCollectionViewDataSource {
         statusItem.menu = statusMenu
         controller.subscribe(onTimeUpdate: updateMenuTime, onCalendarUpdate: updateCalendar)
 
-    }
-    
-    func deactivate() {
-        controller.pause()
     }
     
     @IBAction func openSettingsClicked(_ sender: NSMenuItem) {

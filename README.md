@@ -1,6 +1,6 @@
 # CornerCal - a better clock app for macOS
 
-Download latest version: [CornerCal.dmg.zip](https://github.com/ekreutz/CornerCal/raw/master/builds/CornerCal.dmg.zip) (supports macOS Sierra 10.12 and higher)
+Download latest version: [CornerCal.dmg.zip](https://github.com/ekreutz/CornerCal/raw/master/builds/CornerCal.dmg.zip) (supports macOS High Sierra 10.13 and higher)
 
 A simple, clean calendar and clock app for macOS. Inspired by [Itsycal](https://github.com/sfsam/Itsycal), but purposefully constructed to be a lot simpler and adhere to macOS' native styles.
 
@@ -14,7 +14,7 @@ ___
 
 # Development
 
-The app is written in Swift 4.
+The app is written in Swift 5.
 
 Upcoming features:
 

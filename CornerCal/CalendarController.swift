@@ -119,7 +119,7 @@ class CalendarController: NSObject {
         
         let fireAt = calendar.date(byAdding: .second, value: fireAfter, to: now)!
         timer = Timer(fire: fireAt, interval: tickInterval, repeats: true, block: onTick)
-        RunLoop.main.add(timer!, forMode: RunLoopMode.commonModes)
+        RunLoop.main.add(timer!, forMode: .common)
         
         // tick once to update straight away
         lastTick = calendar.date(byAdding: .second, value: Int(-tickInterval), to: now)
@@ -159,11 +159,6 @@ class CalendarController: NSObject {
             onCalendarUpdate()
             setDateFormat()
         }
-    }
-    
-    func pause() {
-        timer?.invalidate()
-        tick = nil
     }
     
     func itemCount() -> Int {
